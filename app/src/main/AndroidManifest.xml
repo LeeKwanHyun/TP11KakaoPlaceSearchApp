@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TP11KakaoPlaceSearchApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".EmailSignInActivity"></activity>
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".SplashActivity"

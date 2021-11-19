@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +13,9 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,17 +63,47 @@ public class SignUpActivity extends AppCompatActivity {
 
         FirebaseFirestore db= FirebaseFirestore.getInstance();
 
-        //저장할 값들(이메일, 비밀번호)을 HashMap으로 저장
-        Map<String, String> user= new HashMap<>();
-        user.put("email", email);
-        user.put("password", password);
-
-        db.collection("emailUsers").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        //먼저 같은 이메일이 있는지 확인..
+        db.collection("emailUsers").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(DocumentReference documentReference) {
-                new AlertDialog.Builder(SignUpActivity.this).setMessage("축하합니다.\n회원가입이 완료되었습니다.").show();
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+
+                //emailUsers컬렉션안에 여러개의 document가 존재하기에
+                //queryDocumentSnapshots는 리스트임.
+                for(DocumentSnapshot document : queryDocumentSnapshots){
+                    if(email.equals(document.getData().get("email").toString())){
+                        new AlertDialog.Builder(SignUpActivity.this).setMessage("중복된 이메일이 있습니다. 다시 입력해주시기 바랍니다.").show();
+                        etEmail.requestFocus();
+                        etEmail.selectAll();
+                        return;
+                    }
+                }
+
+                //저장할 값들(이메일, 비밀번호)을 HashMap으로 저장
+                Map<String, String> user= new HashMap<>();
+                user.put("email", email);
+                user.put("password", password);
+
+                db.collection("emailUsers").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        new AlertDialog.Builder(SignUpActivity.this)
+                                .setMessage("축하합니다.\n회원가입이 완료되었습니다.")
+                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        finish();
+                                    }
+                                })
+                                .show();
+
+                    }
+                });
+
             }
         });
+
+
 
     }
 }

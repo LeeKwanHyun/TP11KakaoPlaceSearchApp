@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickLoginEmail(View view) {
         //이메일 로그인 화면(액티비티)로 이동
+        startActivity(new Intent(this, EmailSignInActivity.class));
     }
 
     public void clickLoginKakao(View view) {
@@ -131,26 +132,28 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickLoginNaver(View view) {
 
+        new AlertDialog.Builder(this).setMessage("죄송합니다. 네이버 서버 버전문제로 로그인 기능이 불가합니다. 다른 로그인방식을 선택해 주시기 바랍니다.").show();
+
         //주의!네이버로그인은 현재는(2021.11.18) 타겟버전이 30버전 까지 가능함
 
         //1. 네이버 로그인 인스턴스초기화
-        OAuthLogin oAuthLogin= OAuthLogin.getInstance();
-        oAuthLogin.init(this, "Vsotz_uAfD6tFU_mJGT5","UDSY2DCgGF","써플");
-
-        //2. 개발자 사이트에서 앱등록 - 패키지명.. 클라이언트ID, Secret 번호 받기
-
-        //3. 로그인 버튼 구현 방법 2가지
-        //3.1) 네이버로그인버튼 전용뷰 이용 - 이버튼은 클릭이벤트 코드를 직접작성하지 않아도 자동 로그인동작됨
-        //3.2) startOAuthLoginActivity()메소드로 로그인 구현(커스텀 버튼 모양일때 사용)
-        oAuthLogin.startOauthLoginActivity(this, new OAuthLoginHandler() {
-            @Override
-            public void run(boolean success) {
-                //파라미터가 로그인 성공여부를 전달받음.
-                if(success){
-                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        OAuthLogin oAuthLogin= OAuthLogin.getInstance();
+//        oAuthLogin.init(this, "Vsotz_uAfD6tFU_mJGT5","UDSY2DCgGF","써플");
+//
+//        //2. 개발자 사이트에서 앱등록 - 패키지명.. 클라이언트ID, Secret 번호 받기
+//
+//        //3. 로그인 버튼 구현 방법 2가지
+//        //3.1) 네이버로그인버튼 전용뷰 이용 - 이버튼은 클릭이벤트 코드를 직접작성하지 않아도 자동 로그인동작됨
+//        //3.2) startOAuthLoginActivity()메소드로 로그인 구현(커스텀 버튼 모양일때 사용)
+//        oAuthLogin.startOauthLoginActivity(this, new OAuthLoginHandler() {
+//            @Override
+//            public void run(boolean success) {
+//                //파라미터가 로그인 성공여부를 전달받음.
+//                if(success){
+//                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
     }
 }
