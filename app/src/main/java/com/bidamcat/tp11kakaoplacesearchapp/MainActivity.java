@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -212,6 +213,14 @@ public class MainActivity extends AppCompatActivity {
 
         view.setBackgroundResource(R.drawable.bg_choice_select);
         choiceID= view.getId();
+
+        if(G.user==null){//로그인을 안하면..
+            if(choiceID!=R.id.choice_wc && choiceID!=R.id.choice_movie){
+                new AlertDialog.Builder(this).setMessage("로그인을 해야 이용가능합니다.").show();
+                return;
+            }
+
+        }
 
         switch (choiceID){
             case R.id.choice_wc: searchQuery="화장실"; break;
