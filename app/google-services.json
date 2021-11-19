@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "303095585417",
+    "project_id": "splace-45d8d",
+    "storage_bucket": "splace-45d8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303095585417:android:fec18f911df4ad889c0458",
+        "android_client_info": {
+          "package_name": "com.bidamcat.tp11kakaoplacesearchapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303095585417-84b3ven63ins4p29knsj5i5prgpi6606.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8FhLKRgyYDKxh2A8J0CjbXRSVbmSiY3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303095585417-84b3ven63ins4p29knsj5i5prgpi6606.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

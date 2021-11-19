@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/white"/>
+    <item android:drawable="@drawable/sp" android:width="500dp" android:height="500dp" android:gravity="center"/>
+<!--    <item android:drawable="@drawable/ic_action_logo" android:width="40dp" android:height="40dp" android:gravity="center_horizontal" android:top="10dp"/>-->
+
+
+</layer-list>
