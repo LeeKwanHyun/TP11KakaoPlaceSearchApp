@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.choice_movie: searchQuery="영화관"; break;
             case R.id.choice_gas: searchQuery="주유소"; break;
             case R.id.choice_ev: searchQuery="전기충전소"; break;
-            case R.id.choice_01: searchQuery="약국"; break;
+            case R.id.choice_01: searchQuery="병원"; break;
             case R.id.choice_02: searchQuery="맛집"; break;
             case R.id.choice_03: searchQuery="동물병원"; break;
             case R.id.choice_04: searchQuery="맛집"; break;
