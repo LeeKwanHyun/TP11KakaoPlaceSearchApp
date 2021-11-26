@@ -71,5 +71,4 @@
         android:layout_marginRight="64dp"
         android:onClick="clickSignIn"/>
 
-
 </LinearLayout>
