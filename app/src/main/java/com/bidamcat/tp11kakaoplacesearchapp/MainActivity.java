@@ -199,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     //옵션메뉴를 만들어 주는 기능 메소드
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
