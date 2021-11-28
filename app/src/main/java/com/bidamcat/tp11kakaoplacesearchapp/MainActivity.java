@@ -228,10 +228,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.choice_01: searchQuery="병원"; break;
             case R.id.choice_02: searchQuery="맛집"; break;
             case R.id.choice_03: searchQuery="동물병원"; break;
-            case R.id.choice_04: searchQuery="맛집"; break;
-            case R.id.choice_05: searchQuery="맛집"; break;
-            case R.id.choice_06: searchQuery="맛집"; break;
-            case R.id.choice_07: searchQuery="맛집"; break;
+//            case R.id.choice_04: searchQuery="맛집"; break;
+//            case R.id.choice_05: searchQuery="맛집"; break;
+//            case R.id.choice_06: searchQuery="맛집"; break;
+//            case R.id.choice_07: searchQuery="맛집"; break;
         }
 
         //검색작업 요청
